@@ -1,9 +1,19 @@
 package goenv
 
 import (
+	"log"
 	"os"
 	"strconv"
+
+	"github.com/joho/godotenv"
 )
+
+func init() {
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading.env file")
+	}
+}
 
 // GetString returns the value of the environment variable with the given key.
 // If the variable is not set, it returns the defaultValue.
